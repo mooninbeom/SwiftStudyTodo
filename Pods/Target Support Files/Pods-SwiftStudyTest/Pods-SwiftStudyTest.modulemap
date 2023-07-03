@@ -1,0 +1,6 @@
+framework module Pods_SwiftStudyTest {
+  umbrella header "Pods-SwiftStudyTest-umbrella.h"
+
+  export *
+  module * { export * }
+}
