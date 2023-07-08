@@ -5,7 +5,7 @@
 //  Created by 문인범 on 2023/07/01.
 //
 
-import Foundation
+
 import RealmSwift
 
 class date: Object {
@@ -18,11 +18,12 @@ class Todo: Object {
     @Persisted var title: String = ""
     @Persisted var subtitle: String = ""
     @Persisted var date: String = ""
+    @Persisted var isSuccessed: Bool = false
 }
 
 
 extension date {
-    private static var realm = try! Realm()
+    public static var realm = try! Realm()
     
     
     
@@ -70,11 +71,38 @@ extension date {
             }
         })
         
-//        let removeTodo = realm.objects(Todo.self).filter(todo).first
+        let removeTodo = realm.objects(Todo.self).where{ td in
+            (td.title == todo.title) && (td.subtitle == todo.subtitle) && (td.date == todo.date)
+        }.first
+        
         try! realm.write {
             now[0].todoList.remove(at: idx!)
-//            realm.delete(todo)
+            realm.delete(removeTodo!)
         }
+    }
+    
+    static func editTodo(when savedDate: String, _ todo: Todo, _ isSuccess: Bool) -> Void {
+        let now = findSelectedDate(savedDate)
+        if now.isEmpty {
+            print(savedDate)
+            print("error!!")
+            return
+        }
+        
+        let idx = now[0].todoList.firstIndex(where: {
+            if $0.title == todo.title && $0.subtitle == todo.subtitle && $0.date == todo.date {
+                return true
+            } else {
+                return false
+            }
+        })
+        
+        try! realm.write {
+            now[0].todoList[idx!].isSuccessed = isSuccess
+        }
+        
+        
+        
     }
     
     static func getCount(_ savedDate: String) -> Int {

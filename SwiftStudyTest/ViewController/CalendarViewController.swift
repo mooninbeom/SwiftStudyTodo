@@ -17,6 +17,8 @@ class CalendarViewController: UIViewController {
         return view
     }()
     
+    var toolbarList: Int = 0
+    
     var selectedDate: DateComponents?
     
     override func viewDidLoad() {
@@ -89,11 +91,19 @@ extension CalendarViewController: UICalendarViewDelegate, UICalendarSelectionSin
     
     func dateSelection(_ selection: UICalendarSelectionSingleDate, didSelectDate dateComponents: DateComponents?) {
         guard let preVC = self.presentingViewController as? UITabBarController else {return}
-        guard let goVC = preVC.selectedViewController as? TodoViewController else {return}
-        
-        let sendingDate = dateComponents!.date
+        if toolbarList == 0 {
+            guard let goVC = preVC.selectedViewController as? TodoViewController else {return}
+            let sendingDate = dateComponents!.date
 
-        goVC.selectedDate = sendingDate
+            goVC.selectedDate = sendingDate
+        } else {
+            guard let goVC = preVC.selectedViewController as? CollectionViewController else {return}
+            let sendingDate = dateComponents!.date
+            
+            goVC.sel2ReceivedDate = sendingDate
+        }
+        
+        
         
         self.presentingViewController?.dismiss(animated: true)
         

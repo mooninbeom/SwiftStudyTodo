@@ -9,4 +9,5 @@ struct TodoList {
     let title: String
     let subtitle: String
     let date: String
+    var isSuccessed: Bool
 }

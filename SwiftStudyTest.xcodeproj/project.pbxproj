@@ -20,10 +20,12 @@
 		578612442A4BFFA100D221EA /* AddListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578612432A4BFFA100D221EA /* AddListController.swift */; };
 		578612462A4C0DFA00D221EA /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578612452A4C0DFA00D221EA /* TodoCell.swift */; };
 		578612482A4C140E00D221EA /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578612472A4C140E00D221EA /* TodoList.swift */; };
-		5786124A2A4D4C8000D221EA /* AddPlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578612492A4D4C8000D221EA /* AddPlusViewController.swift */; };
 		5786124F2A4EB6B000D221EA /* WeatherKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5786124E2A4EB6B000D221EA /* WeatherKit.swift */; };
 		578612512A4FFDF900D221EA /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578612502A4FFDF900D221EA /* CalendarViewController.swift */; };
 		578612532A5013EE00D221EA /* TodoRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578612522A5013EE00D221EA /* TodoRealm.swift */; };
+		578612552A53F57A00D221EA /* TodoCellSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578612542A53F57A00D221EA /* TodoCellSelectionViewController.swift */; };
+		578612572A5543CB00D221EA /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578612562A5543CB00D221EA /* CollectionViewController.swift */; };
+		5786125B2A55497000D221EA /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5786125A2A55497000D221EA /* CollectionCell.swift */; };
 		64CCEE7B345248F53D33B4BD /* Pods_SwiftStudyTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32401EA07C180625DA96B890 /* Pods_SwiftStudyTestTests.framework */; };
 		656DE709F0FCDB7C88897B70 /* Pods_SwiftStudyTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EA96F270C03DCD4CA37118 /* Pods_SwiftStudyTest.framework */; };
 		795723DE19C430CD23EEFB56 /* Pods_SwiftStudyTest_SwiftStudyTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69263EDD74F5D56551DDE907 /* Pods_SwiftStudyTest_SwiftStudyTestUITests.framework */; };
@@ -69,11 +71,13 @@
 		578612432A4BFFA100D221EA /* AddListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListController.swift; sourceTree = "<group>"; };
 		578612452A4C0DFA00D221EA /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		578612472A4C140E00D221EA /* TodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
-		578612492A4D4C8000D221EA /* AddPlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlusViewController.swift; sourceTree = "<group>"; };
 		5786124D2A4EB68F00D221EA /* SwiftStudyTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftStudyTest.entitlements; sourceTree = "<group>"; };
 		5786124E2A4EB6B000D221EA /* WeatherKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherKit.swift; sourceTree = "<group>"; };
 		578612502A4FFDF900D221EA /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		578612522A5013EE00D221EA /* TodoRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRealm.swift; sourceTree = "<group>"; };
+		578612542A53F57A00D221EA /* TodoCellSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCellSelectionViewController.swift; sourceTree = "<group>"; };
+		578612562A5543CB00D221EA /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		5786125A2A55497000D221EA /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		69263EDD74F5D56551DDE907 /* Pods_SwiftStudyTest_SwiftStudyTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftStudyTest_SwiftStudyTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BFAF903ED851D0C241BB30 /* Pods-SwiftStudyTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftStudyTest.release.xcconfig"; path = "Target Support Files/Pods-SwiftStudyTest/Pods-SwiftStudyTest.release.xcconfig"; sourceTree = "<group>"; };
 		D123B788F334F183D9F167FC /* Pods-SwiftStudyTest-SwiftStudyTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftStudyTest-SwiftStudyTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftStudyTest-SwiftStudyTestUITests/Pods-SwiftStudyTest-SwiftStudyTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 		578612102A4BF98E00D221EA /* SwiftStudyTest */ = {
 			isa = PBXGroup;
 			children = (
+				578612592A55492F00D221EA /* Cell */,
+				578612582A5543F000D221EA /* ViewController */,
 				5786124D2A4EB68F00D221EA /* SwiftStudyTest.entitlements */,
 				578612112A4BF98E00D221EA /* AppDelegate.swift */,
 				578612132A4BF98E00D221EA /* SceneDelegate.swift */,
@@ -141,13 +147,9 @@
 				5786121A2A4BF99000D221EA /* Assets.xcassets */,
 				5786121C2A4BF99000D221EA /* LaunchScreen.storyboard */,
 				5786121F2A4BF99000D221EA /* Info.plist */,
-				578612412A4BFE3A00D221EA /* TodoViewController.swift */,
 				578612432A4BFFA100D221EA /* AddListController.swift */,
-				578612452A4C0DFA00D221EA /* TodoCell.swift */,
 				578612472A4C140E00D221EA /* TodoList.swift */,
-				578612492A4D4C8000D221EA /* AddPlusViewController.swift */,
 				5786124E2A4EB6B000D221EA /* WeatherKit.swift */,
-				578612502A4FFDF900D221EA /* CalendarViewController.swift */,
 				578612522A5013EE00D221EA /* TodoRealm.swift */,
 			);
 			path = SwiftStudyTest;
@@ -168,6 +170,26 @@
 				578612342A4BF99000D221EA /* SwiftStudyTestUITestsLaunchTests.swift */,
 			);
 			path = SwiftStudyTestUITests;
+			sourceTree = "<group>";
+		};
+		578612582A5543F000D221EA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				578612412A4BFE3A00D221EA /* TodoViewController.swift */,
+				578612502A4FFDF900D221EA /* CalendarViewController.swift */,
+				578612542A53F57A00D221EA /* TodoCellSelectionViewController.swift */,
+				578612562A5543CB00D221EA /* CollectionViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		578612592A55492F00D221EA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				578612452A4C0DFA00D221EA /* TodoCell.swift */,
+				5786125A2A55497000D221EA /* CollectionCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		7B1F8A1D3072B04A845E67A9 /* Frameworks */ = {
@@ -432,12 +454,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				578612572A5543CB00D221EA /* CollectionViewController.swift in Sources */,
 				578612512A4FFDF900D221EA /* CalendarViewController.swift in Sources */,
+				5786125B2A55497000D221EA /* CollectionCell.swift in Sources */,
 				578612422A4BFE3A00D221EA /* TodoViewController.swift in Sources */,
 				578612482A4C140E00D221EA /* TodoList.swift in Sources */,
+				578612552A53F57A00D221EA /* TodoCellSelectionViewController.swift in Sources */,
 				5786124F2A4EB6B000D221EA /* WeatherKit.swift in Sources */,
 				578612532A5013EE00D221EA /* TodoRealm.swift in Sources */,
-				5786124A2A4D4C8000D221EA /* AddPlusViewController.swift in Sources */,
 				578612442A4BFFA100D221EA /* AddListController.swift in Sources */,
 				578612162A4BF98E00D221EA /* ViewController.swift in Sources */,
 				578612462A4C0DFA00D221EA /* TodoCell.swift in Sources */,

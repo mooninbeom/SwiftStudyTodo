@@ -11,6 +11,7 @@ import UIKit
 
 class AddListController: UIViewController {
     override func viewDidLoad() {
+        super.viewDidLoad()
         selectTodoList.delegate = self
         selectTodoList.dataSource = self
         inputText.delegate = self
@@ -30,31 +31,46 @@ class AddListController: UIViewController {
     let pickerList: [String] = ["공부하기", "독서하기", "운동하기", "여가활동", "기타"]
     
     var selectedList: String = ""
+    var toolbarList: Int = 0
     
     
     
     @IBAction func goAdd(_ sender: Any) {
         // UITabBarController 안에 UIViewController가 있기 때문에
         // UITabBarController 를 먼저 열어 주고 그 안에 UIViewController 로 접근을 해야 한다.
+        
         guard let preVC = self.presentingViewController as? UITabBarController else {return}
-        
-        guard let nextVC = preVC.selectedViewController as? TodoViewController else {return}
-        
-        let title = self.selectedList
-        guard let subtitle = self.inputText.text else {
-            return
+        if toolbarList == 0 {
+            guard let nextVC = preVC.selectedViewController as? TodoViewController else {return}
+            let title = self.selectedList
+            guard let subtitle = self.inputText.text else {
+                return
+            }
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH:mm"
+            let date = formatter.string(from: datePicker.date)
+            
+            let todoSample = TodoList(title: title, subtitle: subtitle, date: date, isSuccessed: false)
+            
+            
+            
+            nextVC.receivedTodo = todoSample
+        } else {
+            guard let nextVC = preVC.selectedViewController as? CollectionViewController else {return}
+            let title = self.selectedList
+            guard let subtitle = self.inputText.text else {
+                return
+            }
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH:mm"
+            let date = formatter.string(from: datePicker.date)
+            
+            let todoSample = TodoList(title: title, subtitle: subtitle, date: date, isSuccessed: false)
+            
+            nextVC.sel2ReceivedTodo = todoSample
         }
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        let date = formatter.string(from: datePicker.date)
-        
-        let todoSample = TodoList(title: title, subtitle: subtitle, date: date)
-        
-        
-        
-        nextVC.receivedTodo = todoSample
-
         
         self.presentingViewController?.dismiss(animated: true)
     }
