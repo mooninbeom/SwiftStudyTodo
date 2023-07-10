@@ -36,9 +36,17 @@ class AddListController: UIViewController {
     
     
     @IBAction func goAdd(_ sender: Any) {
+
+        // TextField가 비어있을 경우 추가하지 못하도록 경고창 알림
+        if (!inputText.hasText) {
+            let controller = UIAlertController(title: "경고", message: "내용을 입력해주세요!", preferredStyle: .alert)
+            controller.addAction(UIAlertAction(title: "확인", style: .cancel))
+            self.present(controller, animated: true)
+            return
+        }
+        
         // UITabBarController 안에 UIViewController가 있기 때문에
         // UITabBarController 를 먼저 열어 주고 그 안에 UIViewController 로 접근을 해야 한다.
-        
         guard let preVC = self.presentingViewController as? UITabBarController else {return}
         if toolbarList == 0 {
             guard let nextVC = preVC.selectedViewController as? TodoViewController else {return}
@@ -80,10 +88,14 @@ class AddListController: UIViewController {
     }
     
     func textFieldSet() {
-        inputText.textAlignment = .justified
-        inputText.contentVerticalAlignment = .top
+//        inputText.textAlignment = .justified
+//        inputText.contentVerticalAlignment = .top
         inputText.returnKeyType = .done
-        inputText.font = UIFont(name: (inputText.font?.fontName)!, size: 20)
+        inputText.font = UIFont.systemFont(ofSize: 20)
+        inputText.borderStyle = .roundedRect
+//        inputText.layer.cornerRadius = 20
+//        inputText.layer.masksToBounds = true
+        
     }
     
     
